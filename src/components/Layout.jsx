@@ -118,15 +118,15 @@ export default function Layout() {
             `}>
                 <div className="flex items-center justify-between p-4 border-b border-slate-100 min-h-[73px]">
                     <div className={`flex items-center gap-3 overflow-hidden transition-opacity duration-300 ${isSidebarCollapsed ? 'md:opacity-0 md:w-0 md:scale-95' : 'opacity-100 w-auto scale-100'}`}>
-                        <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-xl shadow-lg shadow-blue-200">
-                            <Box className="text-white" size={24} />
+                        <div className="bg-white p-1 rounded-xl shadow-lg border border-slate-100">
+                            <img src="/icons/logogfc.png" alt="Logo" className="w-8 h-8 object-contain" />
                         </div>
                         <h1 className="text-xl font-black text-slate-800 tracking-tight">Ferretería<span className="text-blue-600">POS</span></h1>
                     </div>
                     {isSidebarCollapsed && (
                         <div className="hidden md:flex flex-1 justify-center animate-fade-in">
-                            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-xl shadow-md">
-                                <Box className="text-white" size={22} />
+                            <div className="bg-white p-1 rounded-xl shadow-md border border-slate-100">
+                                <img src="/icons/logogfc.png" alt="Logo" className="w-7 h-7 object-contain" />
                             </div>
                         </div>
                     )}
@@ -247,8 +247,8 @@ export default function Layout() {
                             <Menu size={24} />
                         </button>
                         <div className="flex items-center gap-2">
-                            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-1.5 rounded-lg shadow-sm">
-                                <Box className="text-white" size={18} />
+                            <div className="bg-white p-1 rounded-lg shadow-sm border border-slate-100">
+                                <img src="/icons/logogfc.png" alt="Logo" className="w-6 h-6 object-contain" />
                             </div>
                             <h1 className="text-lg font-black text-slate-800 tracking-tight">Ferretería<span className="text-blue-600">POS</span></h1>
                         </div>

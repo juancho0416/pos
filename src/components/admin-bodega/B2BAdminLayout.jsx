@@ -23,8 +23,8 @@ export default function B2BAdminLayout() {
             <aside className="w-64 bg-slate-950 border-r border-slate-800 flex flex-col hidden md:flex">
                 <div className="p-6 border-b border-slate-800">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded bg-indigo-500 flex items-center justify-center text-white">
-                            <PackageSearch size={20} />
+                        <div className="w-8 h-8 rounded bg-white flex items-center justify-center p-1 border border-slate-700/50">
+                            <img src="/icons/logogfc.png" alt="Logo" className="w-6 h-6 object-contain" />
                         </div>
                         <div>
                             <h1 className="text-white font-bold leading-none tracking-tight">Fulfillment</h1>
@@ -79,7 +79,7 @@ export default function B2BAdminLayout() {
                 <header className="bg-slate-950 border-b border-slate-800 p-4 flex items-center justify-between">
                     <div className="md:hidden">
                         <h1 className="text-white font-bold flex items-center gap-2">
-                            <PackageSearch size={20} className="text-indigo-400" />
+                            <img src="/icons/logogfc.png" alt="Logo" className="w-6 h-6 object-contain mr-2" />
                             Fulfillment B2B
                         </h1>
                     </div>

@@ -41,8 +41,8 @@ export default function Login() {
 
             <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl w-full max-w-md relative z-10 animate-in fade-in zoom-in duration-500">
                 <div className="text-center mb-8">
-                    <div className="bg-gradient-to-tr from-blue-600 to-purple-600 w-16 h-16 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-blue-500/30 mb-4">
-                        <Lock className="text-white" size={32} />
+                    <div className="bg-white w-20 h-20 rounded-2xl mx-auto flex items-center justify-center shadow-lg border border-white/20 mb-4 p-2">
+                        <img src="/icons/logogfc.png" alt="Branding Logo" className="w-full h-full object-contain" />
                     </div>
                     <h1 className="text-3xl font-black text-white tracking-tight mb-1">Bienvenido</h1>
                     <p className="text-slate-400 text-sm font-medium">Sistema de Punto de Venta</p>

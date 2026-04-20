@@ -25,8 +25,8 @@ export default function B2BLayout() {
 
                         {/* Logo & Brand */}
                         <div className="flex-shrink-0 flex items-center gap-3">
-                            <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                                <Package className="w-6 h-6 text-white" />
+                            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg border border-slate-200/50">
+                                <img src="/icons/logogfc.png" alt="Logo" className="w-7 h-7 object-contain" />
                             </div>
                             <div>
                                 <h1 className="text-xl font-bold tracking-tight">Ferretería <span className="text-indigo-400">B2B</span></h1>

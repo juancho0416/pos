@@ -41,6 +41,7 @@ export default function MayoristaLogin() {
         <div className="min-h-[70vh] flex items-center justify-center">
             <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border border-slate-100">
                 <div className="text-center mb-8">
+                    <img src="/icons/logogfc.png" alt="Logo" className="w-20 h-20 mx-auto mb-4 object-contain" />
                     <h2 className="text-2xl font-bold text-slate-800">Acceso a Mayoristas</h2>
                     <p className="text-sm text-slate-500 mt-2">Ingresa con tus credenciales corporativas</p>
                 </div>

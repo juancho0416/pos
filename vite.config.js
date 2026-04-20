@@ -17,7 +17,10 @@ export default defineConfig(({ mode }) => ({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['vite.svg', 'icons/icon-192.png', 'icons/icon-512.png'],
+      devOptions: {
+        enabled: true
+      },
+      includeAssets: ['icons/icon-192.png', 'icons/icon-512.png', 'icons/logogfc.png'],
       manifest: {
         name: 'Sistema Ferretería POS',
         short_name: 'Ferretería',
@@ -27,14 +30,16 @@ export default defineConfig(({ mode }) => ({
         display: 'standalone',
         icons: [
           {
-            src: 'icons/icon-192.png',
+            src: '/icons/icon-192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any maskable'
           },
           {
-            src: 'icons/icon-512.png',
+            src: '/icons/icon-512.png',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       },
