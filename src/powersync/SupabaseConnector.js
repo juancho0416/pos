@@ -217,6 +217,11 @@ export class SupabaseConnector {
       'id', 'sucursal_id', 'cliente_id', 'nombre_cliente',
       'created_by', 'total', 'created_at'
     ],
+    gastos: [
+      'id', 'sucursal_id', 'usuario_id', 'categoria', 'concepto',
+      'monto', 'metodo_pago', 'es_recurrente', 'proveedor',
+      'comprobante_ref', 'fecha_gasto', 'notas', 'created_at'
+    ],
   }
 
   _clean(table, data) {

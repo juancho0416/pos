@@ -4,7 +4,7 @@ import NotificationCenter from './NotificationCenter'
 import {
     ShoppingCart, Package, BarChart3, Menu, X, Box, ArrowRightLeft,
     Lock, Users, Calendar, FileText, ClipboardList, Wifi, WifiOff,
-    CloudUpload, Truck, ChevronLeft, ChevronRight, Settings, AlertTriangle, Download, ReceiptText, AlertCircle, RotateCcw, FileSpreadsheet
+    CloudUpload, Truck, ChevronLeft, ChevronRight, Settings, AlertTriangle, Download, ReceiptText, AlertCircle, RotateCcw, FileSpreadsheet, Receipt
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
@@ -84,6 +84,7 @@ export default function Layout() {
             category: 'ADMINISTRACIÓN',
             items: [
                 { name: 'Reportes', href: '/dashboard', icon: BarChart3, rolesPermitidos: ['admin'] },
+                { name: 'Gastos Operativos', href: '/gastos', icon: Receipt, rolesPermitidos: ['admin'] },
                 { name: 'Historial Turnos', href: '/historial-turnos', icon: Calendar, rolesPermitidos: ['admin'] },
                 { name: 'Equipo', href: '/users-admin', icon: Users, rolesPermitidos: ['admin'] },
                 { name: 'Configuraciones', href: '/settings-admin', icon: Settings, rolesPermitidos: ['admin'] },

@@ -40,6 +40,7 @@ export default function Dashboard() {
         ticketPromedio, margenBruto, topProductsVolume, topProductsProfit,
         salesChangePercent, ticketChangePercent,
         deadStock, totalDeadValue,
+        totalGastos, utilidadNeta,
         loading, chartData, salesData,
         selectedBranch, setSelectedBranch,
         startDate, setStartDate, endDate, setEndDate,
@@ -148,6 +149,25 @@ export default function Dashboard() {
                 <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
                     <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Cartera Créditos</p>
                     <h3 className="text-xl font-black text-amber-500">${porCobrar.toLocaleString('es-MX')}</h3>
+                </div>
+            </div>
+
+            {/* Utilidad Neta + Gastos */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className={`p-6 rounded-2xl shadow-sm border ${(utilidadNeta || 0) >= 0 ? 'bg-gradient-to-br from-emerald-50 to-emerald-100 border-emerald-200' : 'bg-gradient-to-br from-red-50 to-red-100 border-red-200'}`}>
+                    <p className="text-xs font-bold uppercase tracking-wider mb-2 text-slate-500">💰 Utilidad Neta del Periodo</p>
+                    <h3 className={`text-3xl font-black ${(utilidadNeta || 0) >= 0 ? 'text-emerald-700' : 'text-red-700'}`}>
+                        ${(utilidadNeta || 0).toLocaleString('es-MX', {minimumFractionDigits: 2})}
+                    </h3>
+                    <p className="text-[10px] text-slate-400 mt-2">Ventas − Costo Mercancía − Gastos Operativos</p>
+                </div>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-red-100 flex items-center justify-between">
+                    <div>
+                        <p className="text-xs font-bold uppercase tracking-wider mb-2 text-slate-500">📊 Gastos del Periodo</p>
+                        <h3 className="text-2xl font-black text-red-600">${(totalGastos || 0).toLocaleString('es-MX', {minimumFractionDigits: 2})}</h3>
+                        <p className="text-[10px] text-slate-400 mt-1">Total de egresos operativos registrados</p>
+                    </div>
+                    <a href="/gastos" className="px-4 py-2 bg-red-50 text-red-600 font-bold text-xs rounded-lg hover:bg-red-100 transition-colors border border-red-200">Ver Detalle →</a>
                 </div>
             </div>
 

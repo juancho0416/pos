@@ -281,6 +281,22 @@ export const AppSchema = new Schema({
     llave: column.text,
     valor: column.text,
     updated_at: column.text
+  }),
+
+  // ── Gastos Operativos ──
+  gastos: new Table({
+    sucursal_id: column.text,
+    usuario_id: column.text,
+    categoria: column.text,        // RENTA, NOMINA, SERVICIOS, FLETES, MANTENIMIENTO, COMBUSTIBLE, IMPUESTOS, PUBLICIDAD, INSUMOS, OTROS
+    concepto: column.text,
+    monto: column.real,
+    metodo_pago: column.text,      // EFECTIVO, TRANSFERENCIA, TARJETA, CHEQUE
+    es_recurrente: column.integer,  // 0 = Único, 1 = Recurrente mensual
+    proveedor: column.text,
+    comprobante_ref: column.text,
+    fecha_gasto: column.text,
+    notas: column.text,
+    created_at: column.text
   })
 
 });

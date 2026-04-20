@@ -57,6 +57,7 @@ const Quotes = lazyWithRetry(() => import('./pages/Quotes'))
 const KardexGeneral = lazyWithRetry(() => import('./pages/KardexGeneral'))
 const Devoluciones = lazyWithRetry(() => import('./pages/Devoluciones'))
 const ImportProductos = lazyWithRetry(() => import('./pages/ImportProductos'))
+const Gastos = lazyWithRetry(() => import('./pages/Gastos'))
 const DigitalTicketView = lazyWithRetry(() => import('./pages/DigitalTicketView'))
 const DeliveryDispatch = lazyWithRetry(() => import('./pages/DeliveryDispatch'))
 const DriverRoute = lazyWithRetry(() => import('./pages/DriverRoute'))
@@ -319,6 +320,7 @@ function App() {
                       <Route path="kardex" element={<RoleGuard allowedRoles={['admin', 'admin_bodega']}><KardexGeneral /></RoleGuard>} />
                       <Route path="users-admin" element={<RoleGuard allowedRoles={['admin']}><UsersAdmin /></RoleGuard>} />
                       <Route path="settings-admin" element={<RoleGuard allowedRoles={['admin']}><SettingsAdmin /></RoleGuard>} />
+                      <Route path="gastos" element={<RoleGuard allowedRoles={['admin']}><Gastos /></RoleGuard>} />
                     </Route>
                   </Route>
                 </Routes>

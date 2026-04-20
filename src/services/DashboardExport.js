@@ -153,6 +153,32 @@ export async function exportClientsToExcel(powersync) {
     await buildAndSaveExcel(headers, dataRows, 'Cartera_Clientes')
 }
 
+export async function exportGastosToExcel(powersync, { startDate, endDate }) {
+    const gastosData = await powersync.getAll(`
+        SELECT * FROM gastos
+        WHERE fecha_gasto >= ? AND fecha_gasto <= ?
+        ORDER BY fecha_gasto DESC
+    `, [startDate, endDate])
+
+    if (gastosData.length === 0) {
+        alert('No hay gastos en este periodo para exportar.')
+        return
+    }
+
+    const headers = ['Fecha', 'Categoría', 'Concepto', 'Proveedor', 'Método Pago', 'Comprobante', 'Monto']
+    const dataRows = gastosData.map(g => [
+        g.fecha_gasto || 'N/A',
+        g.categoria || 'OTROS',
+        g.concepto || '',
+        g.proveedor || 'N/A',
+        g.metodo_pago || 'EFECTIVO',
+        g.comprobante_ref || 'N/A',
+        g.monto || 0
+    ])
+
+    await buildAndSaveExcel(headers, dataRows, `Gastos_Operativos_${startDate}_al_${endDate}`)
+}
+
 async function buildAndSaveExcel(headers, dataRows, filenamePrefix) {
     const XLSX = (await import('xlsx-js-style')).default || await import('xlsx-js-style')
     const { saveAs } = await import('file-saver')

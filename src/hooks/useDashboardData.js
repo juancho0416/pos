@@ -120,6 +120,19 @@ export function useDashboardData(branches) {
         LIMIT 5
     `, [...(selectedBranch !== 'all' ? [selectedBranch] : []), sixMonthsAgo])
 
+    // ═══════════════════════════════════════════════════
+    // Gastos Operativos del periodo
+    // ═══════════════════════════════════════════════════
+    const branchFilterGastos = selectedBranch !== 'all' ? `AND sucursal_id = ?` : ''
+    const gastosParams = selectedBranch !== 'all' ? [startDate, endDate, selectedBranch] : [startDate, endDate]
+
+    const { data: gastosData = [] } = useQuery(`
+        SELECT IFNULL(SUM(monto), 0) as total_gastos
+        FROM gastos
+        WHERE fecha_gasto >= ? AND fecha_gasto <= ?
+        ${branchFilterGastos}
+    `, gastosParams)
+
     const loading = loadingSales || loadingInv || loadingCli || loadingProducts
 
     // ═══════════════════════════════════════════════════
@@ -194,6 +207,10 @@ export function useDashboardData(branches) {
             chartMap[date][branchName] += (s.total || 0)
         })
 
+        // Utilidad Neta = Ventas - Costo Mercancía - Gastos Operativos
+        const totalGastos = gastosData?.[0]?.total_gastos || 0
+        const utilidadNeta = totalSales - totalCost - totalGastos
+
         return {
             dailySales: totalSales,
             cobrado: totalCobrado,
@@ -210,10 +227,13 @@ export function useDashboardData(branches) {
             // Stock Muerto
             deadStock: deadStockRows,
             totalDeadValue,
+            // Gastos y Utilidad
+            totalGastos,
+            utilidadNeta,
             // Chart
             chartData: Object.keys(chartMap).sort().map(key => chartMap[key])
         }
-    }, [salesData, prevSalesData, inventoryData, clientsData, topProductsRows, deadStockRows, startDate, endDate, branches])
+    }, [salesData, prevSalesData, inventoryData, clientsData, topProductsRows, deadStockRows, gastosData, startDate, endDate, branches])
 
     return {
         ...computed,
